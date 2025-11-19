@@ -82,4 +82,18 @@ public class ReservationController {
 
 
     }
+    @DeleteMapping("/{id}/cancel")
+    public ResponseEntity<Void> cancelReservation(@PathVariable("id") Long id) {
+        log.info("cancelReservation");
+
+        try {
+            reservationService.cancelReservation(id);
+            return ResponseEntity
+                    .status(HttpStatus.NO_CONTENT).build();
+        } catch (NoSuchFieldError e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+
+
+    }
 }
