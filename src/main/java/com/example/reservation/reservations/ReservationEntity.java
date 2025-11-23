@@ -1,4 +1,4 @@
-package com.example.reservation;
+package com.example.reservation.reservations;
 
 import jakarta.persistence.*;
 
@@ -9,19 +9,19 @@ import java.time.LocalDate;
 public class ReservationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "user id")
+    @Column(name = "user_id", nullable = false)
     private Long userId;
-    @Column(name = "room id")
+    @Column(name = "room_id" , nullable = false)
     private Long roomId;
-    @Column(name = "start date")
+    @Column(name = "start_date" , nullable = false)
     private LocalDate startDate;
-    @Column(name = "end date")
+    @Column(name = "end_date" , nullable = false)
     private LocalDate endDate;
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
+    @Column(name = "status" , nullable = false)
     private ReservationStatus status;
 
     public void setId(Long id) {
